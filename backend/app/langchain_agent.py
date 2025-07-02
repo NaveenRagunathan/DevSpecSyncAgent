@@ -8,7 +8,6 @@ import json # Import json for parsing
 # load_dotenv() # No longer needed
 
 # Set your OpenRouter API key here or as an environment variable
-api_key = "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"  # Replace with your actual API key
 # It's generally better to load this from an environment variable for security in production.
 # For development, setting it directly here for convenience as per your request.
 os.environ["OPENROUTER_API_KEY"] = api_key # Ensure it's in env for ChatOpenAI to pick up if not directly passed
