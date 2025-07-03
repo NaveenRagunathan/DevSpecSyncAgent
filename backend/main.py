@@ -45,25 +45,25 @@ async def root():
 async def generate_technical_spec(input_data: IdeaInput):
     """Generates a comprehensive technical execution spec from a product idea."""
     try:
-        # Access the idea from the input_data object
-        idea = input_data.idea
+    # Access the idea from the input_data object
+    idea = input_data.idea
 
-        # Generate the spec using the LangChain agent
-        spec_output = await generate_spec(idea)
+    # Generate the spec using the LangChain agent
+    spec_output = await generate_spec(idea)
 
-        # Save the generated spec to the database
-        saved_spec = await db.projectspec.create(
-            data={
-                "problemGoal": spec_output.problemGoal,
-                "mvpScope": spec_output.mvpScope,
-                "dbSchema": spec_output.dbSchema,
-                "apiRoutes": spec_output.apiRoutes,
-                "langchainDesign": spec_output.langchainDesign,
-                "frontendPlan": spec_output.frontendPlan,
-                "integrationTargets": spec_output.integrationTargets,
-                "devRoadmap": spec_output.devRoadmap,
-            }
-        )
+    # Save the generated spec to the database
+    saved_spec = await db.projectspec.create(
+        data={
+            "problemGoal": spec_output.problemGoal,
+            "mvpScope": spec_output.mvpScope,
+            "dbSchema": spec_output.dbSchema,
+            "apiRoutes": spec_output.apiRoutes,
+            "langchainDesign": spec_output.langchainDesign,
+            "frontendPlan": spec_output.frontendPlan,
+            "integrationTargets": spec_output.integrationTargets,
+            "devRoadmap": spec_output.devRoadmap,
+        }
+    )
 
         # Convert datetime objects to strings for JSON serialization
         saved_spec_dict = saved_spec.dict()

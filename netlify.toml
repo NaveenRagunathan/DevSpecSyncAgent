@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "frontend/.next"
+
+[functions]
+  directory = "frontend/.netlify/functions-internal"
+
+[dev]
+  framework = "next"
